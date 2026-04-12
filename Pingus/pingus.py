@@ -15,7 +15,7 @@ y = df.iloc[:, -1]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 numeric_cols = X_train.select_dtypes(include=['int64', 'float64']).columns
-categorical_cols = X_train.select_dtypes(include=['object']).columns
+categorical_cols = X_train.select_dtypes(include=['object','string']).columns
 
 num_transformer = Pipeline(steps=[
     ('imputer', SimpleImputer(strategy='mean')),
